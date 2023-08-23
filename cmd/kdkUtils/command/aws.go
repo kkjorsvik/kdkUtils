@@ -15,11 +15,10 @@ Options:
 `
 
 var awsFunc = func(cmd *Command, args []string) {
-	homeDir, err := os.UserHomeDir()
-	if err != nil {
+	if _, err := os.UserHomeDir(); err != nil {
 		errAndExit("Failed to return user's home directory.")
 	}
-	fmt.Printf("Home Directory: %s", homeDir)
+	fmt.Println("Hello from AWS Stuff!")
 }
 
 func AwsCommand() *Command {

@@ -15,7 +15,10 @@ Options:
 `
 
 var linuxFunc = func(cmd *Command, args []string) {
-	// Unsure if I need this yet
+	if _, err := os.UserHomeDir(); err != nil {
+		errAndExit("Failed to return user's home directory. Some reason this is important, maybe?")
+	}
+	fmt.Println("Hello from Linux Stuff")
 }
 
 func LinuxCommand() *Command {
